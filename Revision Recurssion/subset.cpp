@@ -1,0 +1,38 @@
+#include<iostream>
+#include <bits/stdc++.h>
+using namespace std ;
+
+   void solve(string ip, string op){
+        if(ip.length() == 0){
+            cout<<op<<" ";
+            return ;
+        }
+
+        string op1 = op ;
+        string op2 = op ;
+        op2.push_back(ip[0]);
+
+        ip.erase(ip.begin() + 0);
+        solve(ip, op1) ;
+        solve(ip, op2);
+    }
+
+int main(){
+    string ip = "abc" ;
+    int opsize = pow(2, ip.length()) ;
+
+    for(int counter = 1; counter < opsize; counter++){
+        int j = 0;
+        int num = counter ;
+        while(num > 0){
+            if(num & 1){
+                cout<<ip[j];
+            }
+            j++;
+            num = num >> 1;
+
+        } cout<<" ";
+    }
+
+   
+}
